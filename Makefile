@@ -16,7 +16,7 @@ CYAN		:= \033[0;36m
 BLUE		:= \033[0;34m
 RESET		:= \033[0m
 
-SRCS		:= main.c
+SRCS		:= main.c builtins.c
 SRC_FILES	:= $(addprefix $(SRC_DIR)/, $(SRCS))
 
 OBJS		:= $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
