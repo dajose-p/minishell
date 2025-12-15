@@ -24,21 +24,21 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJECTS)
-	$(AR) $(NAME) $(OBJECTS)
+	@$(AR) $(NAME) $(OBJECTS)
 	
 $(BON_NAME): $(OBJECTS) $(BOBJECTS)
-	$(AR) $(BON_NAME) $(OBJECTS) $(BOBJECTS)
-	$(AR) $(NAME) $(OBJECTS) $(BOBJECTS)
+	@$(AR) $(BON_NAME) $(OBJECTS) $(BOBJECTS)
+	@$(AR) $(NAME) $(OBJECTS) $(BOBJECTS)
 bonus: $(BON_NAME)
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $< -o $@
+	@$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
-	rm -f $(OBJECTS) $(BOBJECTS)
+	@rm -f $(OBJECTS) $(BOBJECTS)
 
 fclean: clean
-	rm -f $(NAME) $(BON_NAME)
+	@rm -f $(NAME) $(BON_NAME)
 
 re: fclean all
 
