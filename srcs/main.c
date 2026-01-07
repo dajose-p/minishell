@@ -6,7 +6,7 @@
 /*   By: danjose- <danjose-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:53:37 by danjose-          #+#    #+#             */
-/*   Updated: 2025/12/22 19:12:51 by danjose-         ###   ########.fr       */
+/*   Updated: 2026/01/07 18:08:12 by danjose-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(void)
 	while (1)
 	{
 		printf(MAGENTA "%s",login);
-		input = readline("@minishell$>" RESET);
+		input = readline("@minishell$> " RESET);
 		parser_checker(input);
 		rl_on_new_line();
 	}

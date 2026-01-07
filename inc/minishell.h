@@ -6,7 +6,7 @@
 /*   By: danjose- <danjose-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:54:11 by danjose-          #+#    #+#             */
-/*   Updated: 2025/12/22 19:25:00 by danjose-         ###   ########.fr       */
+/*   Updated: 2026/01/07 18:57:22 by danjose-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@
 void	parser_checker(char *input);
 void	echo_builtin(char *input);
 void	pwd_builtin(void);
+void	exit_builtin(void);
 
 #endif
