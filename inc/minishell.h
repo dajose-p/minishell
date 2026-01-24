@@ -6,7 +6,7 @@
 /*   By: danjose- <danjose-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:54:11 by danjose-          #+#    #+#             */
-/*   Updated: 2026/01/07 18:57:22 by danjose-         ###   ########.fr       */
+/*   Updated: 2026/01/13 20:10:03 by danjose-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,19 @@
 # define MAGENTA "\x1B[35m"
 #define RESET "\033[0m"
 
+typedef struct s_env
+{
+	char *key;
+	char *value;
+	struct s_env *next;
+}	t_env;
 
 void	parser_checker(char *input);
 void	echo_builtin(char *input);
-void	pwd_builtin(void);
+char	*pwd_builtin(void);
 void	exit_builtin(void);
+void	cd_builtin(char *input);
+void    insert_el(t_env **env, char *key, char *value);
+void	set_env(t_env **env, char **envt);
 
 #endif
