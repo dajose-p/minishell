@@ -5,9 +5,8 @@ LDFLAGS		:= -lreadline
 LIBFT_DIR	:= libft
 SRC_DIR		:= srcs
 OBJ_DIR		:= objs
-INC_DIR		:= inc
 LIBFT		:= $(LIBFT_DIR)/libft.a
-INCLUDES	:= -I$(INC_DIR) -I$(LIBFT_DIR)
+INCLUDES	:= -I$(LIBFT_DIR)
 
 GREEN		:= \033[0;32m
 YELLOW		:= \033[0;33m
@@ -25,7 +24,7 @@ CURRENT		:= 0
 
 all: banner $(NAME)
 	@echo "$(GREEN)╔══════════════════════════════════════╗$(RESET)"
-	@echo "$(GREEN)║     ✓ Minishell compiled!           ║$(RESET)"
+	@echo "$(GREEN)║     ✓ Minishell compiled!            ║$(RESET)"
 	@echo "$(GREEN)╚══════════════════════════════════════╝$(RESET)"
 
 banner:

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   lst_ops.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danjose- <danjose-@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: danjose- <danjose-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 20:31:42 by danjose-          #+#    #+#             */
-/*   Updated: 2026/01/22 23:29:41 by danjose-         ###   ########.fr       */
+/*   Updated: 2026/01/26 20:06:18 by danjose-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/minishell.h"
+#include "../minishell.h"
 
 void	insert_el(t_env **env, char *key, char *value)
 {

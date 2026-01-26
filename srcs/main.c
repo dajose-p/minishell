@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danjose- <danjose-@student.42madrid.com>   +#+  +:+       +#+        */
+/*   By: danjose- <danjose-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:53:37 by danjose-          #+#    #+#             */
-/*   Updated: 2026/01/24 21:27:05 by danjose-         ###   ########.fr       */
+/*   Updated: 2026/01/26 20:06:14 by danjose-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/minishell.h"
+#include "../minishell.h"
 
 // void	print_env(char **envp)
 // {
