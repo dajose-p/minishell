@@ -38,7 +38,8 @@ void	echo_builtin(char *input);
 char	*pwd_builtin(void);
 void	exit_builtin(void);
 void	cd_builtin(char *input);
-void    insert_el(t_env **env, char *key, char *value);
+void	insert_el(t_env **env, char *key, char *value);
 void	set_env(t_env **env, char **envt);
+void	free_list(t_env **env);
 
 #endif

@@ -12,37 +12,38 @@
 
 #include "../inc/minishell.h"
 
-void    lstadd_front(t_env **env)
+void	insert_el(t_env **env, char *key, char *value)
 {
-        t_env *new;
+	t_env	*new;
+	t_env	*head;
 
-        new = malloc(sizeof(t_env));
-        if (!new)
-                return ;
-        new->key = (*env)->key;
-        new->value = (*env)->value;
-        new->next = *env;
-        *env = new;
+	head = *env;
+	new = malloc(sizeof(t_env));
+	if (!new)
+		return ;
+	new->key = ft_strdup(key);
+	new->value = ft_strdup(value);
+	new->next = NULL;
+	if (*env == NULL)
+	{
+		*env = new;
+		return ;
+	}
+	while (head->next)
+		head = head->next;
+	head->next = new;
 }
 
-void    insert_el(t_env **env, char *key, char *value)
+void	free_list(t_env **env)
 {
-        t_env *new;
-        t_env   *head;
+	t_env	*head;
 
-        head = *env;
-        new = malloc(sizeof(t_env));
-        if (!new)
-                return ;
-        new->key = key;
-        new->value = value;
-	new->next = NULL;
-        if (*env == NULL)
-        {
-               *env = new;
-               return ;
-        }
-        while (head->next)
-                head = head->next;
-        head->next = new;
+	head = *env;
+	while (head)
+	{
+		free(head->key);
+		free(head->value);
+		free(head);
+		head = head->next;
+	}
 }

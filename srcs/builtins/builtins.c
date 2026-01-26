@@ -16,7 +16,7 @@ void	echo_builtin(char *input)
 {
 	char	**split;
 	size_t	i;
-	
+
 	split = ft_split(input, ' ');
 	i = 1;
 	while (split[i])

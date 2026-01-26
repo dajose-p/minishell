@@ -45,23 +45,25 @@ void	free_split(char **to_free)
 		free(to_free[i]);
 		i++;
 	}
+	free(to_free);
 }
 
 void	set_env(t_env **env, char **envt)
 {
 	char	**sp_env;
-	int	i;
+	int		i;
 
 	i = 0;
 	while (envt[i])
 	{
 		sp_env = ft_split(envt[i], '=');
 		insert_el(env, sp_env[0], sp_env[1]);
+		free_split(sp_env);
 		i++;
 	}
 }
 
-int main(int argc, char **argv, char **envp)
+int	main(int argc, char **argv, char **envp)
 {
 	char	*input;
 	char	*curr_path;
@@ -69,6 +71,7 @@ int main(int argc, char **argv, char **envp)
 
 	(void)argc;
 	(void)argv;
+	env = NULL;
 	set_env(&env, envp);
 	while (1)
 	{
@@ -80,6 +83,7 @@ int main(int argc, char **argv, char **envp)
 		parser_checker(input);
 		rl_on_new_line();
 	}
+	free_list(&env);
 	free(input);
 	return (0);
 }
