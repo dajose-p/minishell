@@ -10,7 +10,7 @@ SOURCES = \
 	ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c \
 	ft_putendl_fd.c ft_putnbr_fd.c ft_printf.c ft_printf_utils.c ft_itoa_uns.c \
 	get_next_line.c get_next_line_utils.c ft_printf.c ft_itoa_uns.c ft_printf_utils.c \
-	ft_putcount_base.c ft_putcount_ptr.c
+	ft_putcount_base.c ft_putcount_ptr.c ft_split_v2.c
 
 BONUSSRC = \
 	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c ft_lstadd_back_bonus.c \

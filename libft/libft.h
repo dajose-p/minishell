@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dajose-p <dajose-p@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: danjose- <danjose-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 21:04:19 by dajose-p          #+#    #+#             */
-/*   Updated: 2024/11/14 22:38:48 by dajose-p         ###   ########.fr       */
+/*   Updated: 2026/01/28 21:07:54 by danjose-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -71,4 +72,7 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+
+char	**ft_split_v2(char const *s);
+
 #endif
