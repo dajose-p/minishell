@@ -12,16 +12,17 @@
 
 #include "tokenizer.h"
 
-char	check_sp_char(char first_split);
-
 t_tokens    *main_tokenize(char *input)
 {
 	char	**first_split;
-	char	sp_char
+	char	sp_char;
 	int	i;
+	int	j;
 	t_tokens	*str_tokens;
 
+	(void)str_tokens;
 	str_tokens = NULL;
+	j = 0;
 	i = 0;
 	first_split = ft_split_v2(input);
 	while (first_split[i])
@@ -29,7 +30,11 @@ t_tokens    *main_tokenize(char *input)
 		j = 0;
 		while (first_split[i][j])
 		{
-			sp_char = check_sp_char(first_split[i][j]);
+			sp_char = first_split[i][j];
+			printf("%c\n", sp_char);
+			j++;
 		}
+		i++;
 	}
+	return NULL;
 }

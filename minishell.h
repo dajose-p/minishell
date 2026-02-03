@@ -13,11 +13,12 @@
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-# include "../libft/libft.h"
+# include "libft/libft.h"
 # include <stdio.h>
 # include <readline/readline.h>
 # include <readline/history.h>
 # include "builtins/builtins.h"
+# include "tokenizer/tokenizer.h"
 
 # define GREEN "\033[0;32m"
 # define YELLOW "\033[0;33m"

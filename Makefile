@@ -6,7 +6,7 @@
 #    By: danjose- <danjose-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/26 00:00:00 by danjose-          #+#    #+#              #
-#    Updated: 2026/01/26 20:22:19 by danjose-         ###   ########.fr        #
+#    Updated: 2026/01/28 00:00:00 by danjose-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,10 +28,11 @@ LDFLAGS     := -lreadline
 #                                 DIRECTORIES                                  #
 # ============================================================================ #
 
-SRC_DIR     := srcs
-BUILTIN_DIR := builtins
-OBJ_DIR     := objs
-LIBFT_DIR   := libft
+SRC_DIR       := srcs
+BUILTIN_DIR   := builtins
+TOKENIZER_DIR := tokenizer
+OBJ_DIR       := objs
+LIBFT_DIR     := libft
 
 # ============================================================================ #
 #                                   COLORS                                     #
@@ -60,10 +61,14 @@ SRCS_BUILTIN := echo.c \
                 exit.c \
                 main_func.c
 
+# Archivos en tokenizer/
+SRCS_TOKENIZER := tokens.c
+
 # Construcción de rutas completas
-SRC_FILES    := $(addprefix $(SRC_DIR)/, $(SRCS_MAIN))
-BUILTIN_FILES:= $(addprefix $(BUILTIN_DIR)/, $(SRCS_BUILTIN))
-ALL_SRCS     := $(SRC_FILES) $(BUILTIN_FILES)
+SRC_FILES      := $(addprefix $(SRC_DIR)/, $(SRCS_MAIN))
+BUILTIN_FILES  := $(addprefix $(BUILTIN_DIR)/, $(SRCS_BUILTIN))
+TOKENIZER_FILES:= $(addprefix $(TOKENIZER_DIR)/, $(SRCS_TOKENIZER))
+ALL_SRCS       := $(SRC_FILES) $(BUILTIN_FILES) $(TOKENIZER_FILES)
 
 # ============================================================================ #
 #                                OBJECT FILES                                  #
@@ -81,13 +86,13 @@ LIBFT       := $(LIBFT_DIR)/libft.a
 #                                   INCLUDES                                   #
 # ============================================================================ #
 
-INCLUDES    := -I$(LIBFT_DIR) -I. -I$(BUILTIN_DIR)
+INCLUDES    := -I$(LIBFT_DIR) -I. -I$(BUILTIN_DIR) -I$(TOKENIZER_DIR)
 
 # ============================================================================ #
 #                               SEARCH PATHS                                   #
 # ============================================================================ #
 
-VPATH       := $(SRC_DIR):$(BUILTIN_DIR)
+VPATH       := $(SRC_DIR):$(BUILTIN_DIR):$(TOKENIZER_DIR)
 
 # ============================================================================ #
 #                                PROGRESS BAR                                  #
@@ -159,7 +164,8 @@ debug: re
 
 norm:
 	@echo "$(CYAN)📋 Running norminette...$(RESET)"
-	@norminette $(SRC_DIR) $(BUILTIN_DIR) $(LIBFT_DIR) minishell.h builtins/builtins.h || true
+	@norminette $(SRC_DIR) $(BUILTIN_DIR) $(TOKENIZER_DIR) $(LIBFT_DIR) \
+		minishell.h builtins/builtins.h tokenizer/tokenizer.h || true
 
 help:
 	@echo "$(CYAN)Available targets:$(RESET)"
@@ -176,22 +182,27 @@ help:
 # Debug: muestra todas las variables (útil para verificar rutas)
 show:
 	@echo "$(CYAN)=== DIRECTORIES ===$(RESET)"
-	@echo "SRC_DIR:     $(SRC_DIR)"
-	@echo "BUILTIN_DIR: $(BUILTIN_DIR)"
-	@echo "OBJ_DIR:     $(OBJ_DIR)"
-	@echo "LIBFT_DIR:   $(LIBFT_DIR)"
+	@echo "SRC_DIR:       $(SRC_DIR)"
+	@echo "BUILTIN_DIR:   $(BUILTIN_DIR)"
+	@echo "TOKENIZER_DIR: $(TOKENIZER_DIR)"
+	@echo "OBJ_DIR:       $(OBJ_DIR)"
+	@echo "LIBFT_DIR:     $(LIBFT_DIR)"
 	@echo ""
 	@echo "$(CYAN)=== SOURCE FILES ===$(RESET)"
 	@echo "SRCS_MAIN:"
 	@echo "  $(SRCS_MAIN)" | tr ' ' '\n' | sed 's/^/  /'
 	@echo "SRCS_BUILTIN:"
 	@echo "  $(SRCS_BUILTIN)" | tr ' ' '\n' | sed 's/^/  /'
+	@echo "SRCS_TOKENIZER:"
+	@echo "  $(SRCS_TOKENIZER)" | tr ' ' '\n' | sed 's/^/  /'
 	@echo ""
 	@echo "$(CYAN)=== FULL PATHS ===$(RESET)"
 	@echo "SRC_FILES:"
 	@echo "  $(SRC_FILES)" | tr ' ' '\n' | sed 's/^/  /'
 	@echo "BUILTIN_FILES:"
 	@echo "  $(BUILTIN_FILES)" | tr ' ' '\n' | sed 's/^/  /'
+	@echo "TOKENIZER_FILES:"
+	@echo "  $(TOKENIZER_FILES)" | tr ' ' '\n' | sed 's/^/  /'
 	@echo ""
 	@echo "$(CYAN)=== OBJECT FILES ===$(RESET)"
 	@echo "OBJS:"
@@ -202,5 +213,8 @@ show:
 	@echo ""
 	@echo "$(CYAN)=== VPATH ===$(RESET)"
 	@echo "$(VPATH)"
+	@echo ""
+	@echo "$(CYAN)=== TOTAL FILES ===$(RESET)"
+	@echo "Total source files: $(TOTAL)"
 
 .PHONY: all clean fclean re run debug norm help banner show

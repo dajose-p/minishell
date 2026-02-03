@@ -80,6 +80,7 @@ int	main(int argc, char **argv, char **envp)
 		printf("@minishell: ");
 		printf(BLUE "%s", curr_path);
 		input = readline("$ " RESET);
+		main_tokenize(input);
 		parser_checker(input);
 		rl_on_new_line();
 	}
