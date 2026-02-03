@@ -6,7 +6,7 @@
 /*   By: danjose- <danjose-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 20:31:42 by danjose-          #+#    #+#             */
-/*   Updated: 2026/01/26 20:06:18 by danjose-         ###   ########.fr       */
+/*   Updated: 2026/02/03 21:30:26 by danjose-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,10 @@ void	free_list(t_env **env)
 {
 	t_env	*head;
 
-	head = *env;
-	while (head)
+	while (*env)
 	{
-		free(head->key);
-		free(head->value);
+		head = *env;
+		*env = (*env)->next;
 		free(head);
-		head = head->next;
 	}
 }
